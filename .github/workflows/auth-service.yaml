@@ -1,0 +1,13 @@
+name: Deploy Auth Service
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-dockerhub-build:
+    uses: ./.github/workflows/dockerhub-build.yml
+    with:
+      service_name: auth-service
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
