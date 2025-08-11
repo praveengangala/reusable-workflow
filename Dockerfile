@@ -1,20 +1,9 @@
-# Use official Node.js runtime as base image
-FROM node:18-alpine
+FROM alpine:3.18
 
-# Create app directory inside container
 WORKDIR /app
 
-# Copy package.json & package-lock.json first (for caching)
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the application code
+# Copy all your repo files into the container
 COPY . .
 
-# Expose the app port
-EXPOSE 3000
-
-# Command to run the app
-CMD ["npm", "start"]
+# Simple command to keep container alive
+CMD ["sh", "-c", "echo 'Hello from auth-service container' && sleep infinity"]
