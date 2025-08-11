@@ -5,7 +5,7 @@ on:
 
 jobs:
   call-dockerhub-build:
-    uses: ./.github/workflows/resuable-workflow.yml
+    uses: ./.github/workflows/reusable-workflow.yml
     with:
       service_name: auth-service
     secrets:
